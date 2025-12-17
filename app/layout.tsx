@@ -2,8 +2,8 @@ import type { Metadata } from 'next'
 import './globals.css'
 
 export const metadata: Metadata = {
-  title: 'Rafael Melo - Portfólio Acadêmico',
-  description: 'Graduando em Engenharia Mecatrônica na Unicamp, pesquisador em Computer Vision e Machine Learning',
+  title: 'Rafael Melo - Academic Portfolio',
+  description: 'Mechatronics Engineering student at Unicamp, researcher in Computer Vision and Machine Learning',
 }
 
 export default function RootLayout({
@@ -12,7 +12,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="pt-BR">
+    <html lang="en">
       <body>{children}</body>
     </html>
   )

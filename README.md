@@ -135,7 +135,7 @@ Este projeto é pessoal e acadêmico.
 
 **Rafael Melo**
 - E-mail: rafaelrpm10@gmail.com
-- LinkedIn: [Rafael Melo](https://www.linkedin.com/in/rafael-melo)
+- LinkedIn: [Rafael Melo](https://www.linkedin.com/in/rafael-pimentel-9588a02b3)
 
 ---
 
