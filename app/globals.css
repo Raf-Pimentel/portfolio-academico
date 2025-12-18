@@ -13,7 +13,14 @@ html {
 
 body {
   color: var(--foreground);
-  background: var(--background);
+  background: #0a0e1a;
+  background-image: 
+    radial-gradient(circle at 2px 2px, rgba(148, 163, 184, 0.08) 1px, transparent 0),
+    radial-gradient(circle at 20% 50%, rgba(30, 58, 138, 0.12) 0%, transparent 50%),
+    radial-gradient(circle at 80% 80%, rgba(30, 58, 138, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 40% 20%, rgba(15, 23, 42, 0.3) 0%, transparent 50%);
+  background-size: 50px 50px, 100% 100%, 100% 100%, 100% 100%;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  position: relative;
 }
 

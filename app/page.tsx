@@ -5,9 +5,17 @@ import { Linkedin, Mail, Download, GraduationCap, Briefcase, Code, Brain, Users,
 
 export default function Home() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const [expandedCards, setExpandedCards] = useState<{ [key: string]: boolean }>({})
+  
+  const toggleCard = (cardId: string) => {
+    setExpandedCards(prev => ({
+      ...prev,
+      [cardId]: !prev[cardId]
+    }))
+  }
 
   return (
-    <main className="min-h-screen bg-slate-950 text-slate-100">
+    <main className="min-h-screen bg-slate-950 text-slate-100 relative z-10">
       {/* Navigation Bar */}
       <nav className="fixed top-0 left-0 right-0 z-50 bg-slate-950/80 backdrop-blur-md border-b border-slate-800">
         <div className="container mx-auto px-4">
@@ -22,6 +30,7 @@ export default function Home() {
               <a href="#projects" className="text-slate-300 hover:text-slate-100 transition-colors text-sm">Projects</a>
               <a href="#skills" className="text-slate-300 hover:text-slate-100 transition-colors text-sm">Skills</a>
               <a href="#awards" className="text-slate-300 hover:text-slate-100 transition-colors text-sm">Awards</a>
+              <a href="#cv" className="text-slate-300 hover:text-slate-100 transition-colors text-sm">CV</a>
               <a href="#contact" className="text-slate-300 hover:text-slate-100 transition-colors text-sm">Contact</a>
             </div>
             <button
@@ -42,6 +51,7 @@ export default function Home() {
                 <a href="#projects" onClick={() => setMobileMenuOpen(false)} className="text-slate-300 hover:text-slate-100 transition-colors text-sm">Projects</a>
                 <a href="#skills" onClick={() => setMobileMenuOpen(false)} className="text-slate-300 hover:text-slate-100 transition-colors text-sm">Skills</a>
                 <a href="#awards" onClick={() => setMobileMenuOpen(false)} className="text-slate-300 hover:text-slate-100 transition-colors text-sm">Awards</a>
+                <a href="#cv" onClick={() => setMobileMenuOpen(false)} className="text-slate-300 hover:text-slate-100 transition-colors text-sm">CV</a>
                 <a href="#contact" onClick={() => setMobileMenuOpen(false)} className="text-slate-300 hover:text-slate-100 transition-colors text-sm">Contact</a>
               </div>
             </div>
@@ -105,8 +115,8 @@ export default function Home() {
                 <h3 className="text-2xl font-semibold">Researcher - Computer Vision</h3>
               </div>
               <p className="text-slate-400 mb-2">LIDS - Laboratory of Information and Decision Systems</p>
-              <p className="text-slate-500 text-sm mt-1">Advisor: Prof. Dr. Alexandre Xavier Falcão</p>
-              <p className="text-slate-500 text-sm mt-1 italic">Selected on merit after achieving the highest grade in Data Structures</p>
+              <p className="text-slate-200 text-sm mt-2 font-semibold">Advisor: <span className="text-blue-400">Prof. Dr. Alexandre Xavier Falcão</span></p>
+              <p className="text-slate-400 text-sm mt-2 italic">Selected on merit after achieving the highest grade in Data Structures</p>
             </div>
             <div className="bg-slate-900 border border-slate-800 rounded-xl p-6 hover:border-slate-700 transition-colors">
               <div className="flex items-center gap-3 mb-4">
@@ -114,8 +124,8 @@ export default function Home() {
                 <h3 className="text-2xl font-semibold">Researcher - Machine Learning</h3>
               </div>
               <p className="text-slate-400 mb-2">LAMAR - Machine Learning in Bearings</p>
-              <p className="text-slate-500 text-sm mt-1">Advisor: Prof. Dr. Thales de Freitas Peixoto</p>
-              <p className="text-slate-500 text-sm mt-1 italic">Selected on merit after achieving the second highest grade in Statics</p>
+              <p className="text-slate-200 text-sm mt-2 font-semibold">Advisor: <span className="text-blue-400">Prof. Dr. Thales de Freitas Peixoto</span></p>
+              <p className="text-slate-400 text-sm mt-2 italic">Selected on merit after achieving the second highest grade in Statics</p>
             </div>
             <div className="bg-slate-900 border border-slate-800 rounded-xl p-6 hover:border-slate-700 transition-colors">
               <div className="flex items-center gap-3 mb-4">
@@ -123,12 +133,34 @@ export default function Home() {
                 <h3 className="text-2xl font-semibold">Autonomous Vehicles Engineer</h3>
               </div>
               <p className="text-slate-400 mb-2">E-racing - Unicamp</p>
-              <p className="text-slate-500 text-sm mt-2">
-                Developed and implemented a fully autonomous (driverless) Formula electric car. Progressed from basic to advanced proficiency in Python, Linux, Git, ROS2, Computer Vision, and Image Processing over six months.
-              </p>
-              <p className="text-slate-500 text-sm mt-2 italic">
-                Project secured 3rd place in Brazil's National Autonomous Vehicles Competition, competing against the top 20 universities in the country.
-              </p>
+              {!expandedCards['eracing'] ? (
+                <>
+                  <p className="text-slate-400 text-sm mt-2 line-clamp-2">
+                    Developed and implemented a fully autonomous (driverless) Formula electric car. Progressed from basic to advanced proficiency in Python, Linux, Git, ROS2, Computer Vision, and Image Processing over six months.
+                  </p>
+                  <button
+                    onClick={() => toggleCard('eracing')}
+                    className="text-blue-400 hover:text-blue-300 text-sm mt-2 font-medium transition-colors"
+                  >
+                    Read more →
+                  </button>
+                </>
+              ) : (
+                <>
+                  <p className="text-slate-300 text-sm mt-2 leading-relaxed">
+                    Developed and implemented a fully autonomous (driverless) Formula electric car. Progressed from basic to advanced proficiency in Python, Linux, Git, ROS2, Computer Vision, and Image Processing over six months.
+                  </p>
+                  <p className="text-slate-300 text-sm mt-3 italic">
+                    Project secured 3rd place in Brazil's National Autonomous Vehicles Competition, competing against the top 20 universities in the country.
+                  </p>
+                  <button
+                    onClick={() => toggleCard('eracing')}
+                    className="text-blue-400 hover:text-blue-300 text-sm mt-3 font-medium transition-colors"
+                  >
+                    Read less ↑
+                  </button>
+                </>
+              )}
             </div>
             {/* Leadership positions can be here or in a separate section */}
             <div className="bg-slate-900 border border-slate-800 rounded-xl p-6 hover:border-slate-700 transition-colors">
@@ -136,8 +168,32 @@ export default function Home() {
                 <Users className="w-6 h-6 text-green-400" />
                 <h3 className="text-2xl font-semibold">President</h3>
               </div>
-              <p className="text-slate-400">Entrepreneurship League - Unicamp</p>
-              <p className="text-slate-500 text-sm mt-2">Leading a 15-person team, developing entrepreneurial projects and promoting innovation at Unicamp.</p>
+              <p className="text-slate-400 mb-2">Entrepreneurship League - Unicamp</p>
+              {!expandedCards['president'] ? (
+                <>
+                  <p className="text-slate-400 text-sm mt-2 line-clamp-2">
+                    Leading a 15-person team, developing entrepreneurial projects and promoting innovation at Unicamp.
+                  </p>
+                  <button
+                    onClick={() => toggleCard('president')}
+                    className="text-blue-400 hover:text-blue-300 text-sm mt-2 font-medium transition-colors"
+                  >
+                    Read more →
+                  </button>
+                </>
+              ) : (
+                <>
+                  <p className="text-slate-300 text-sm mt-2 leading-relaxed">
+                    Leading a 15-person team, developing entrepreneurial projects and promoting innovation at Unicamp. Responsible for strategic planning, team coordination, and fostering a culture of entrepreneurship within the university community.
+                  </p>
+                  <button
+                    onClick={() => toggleCard('president')}
+                    className="text-blue-400 hover:text-blue-300 text-sm mt-3 font-medium transition-colors"
+                  >
+                    Read less ↑
+                  </button>
+                </>
+              )}
             </div>
             <div className="bg-slate-900 border border-slate-800 rounded-xl p-6 hover:border-slate-700 transition-colors">
               <div className="flex items-center gap-3 mb-4">
@@ -477,6 +533,28 @@ export default function Home() {
         </div>
       </section>
 
+      {/* CV Section */}
+      <section id="cv" className="container mx-auto px-4 py-20 scroll-mt-16">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="text-4xl font-bold mb-12 text-center">Curriculum Vitae</h2>
+          <div className="bg-slate-900 border border-slate-800 rounded-xl p-8">
+            <p className="text-slate-300 text-center mb-8 text-lg">
+              Download my complete CV in PDF format
+            </p>
+            <div className="flex justify-center">
+              <a
+                href="/cv.pdf"
+                download
+                className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white rounded-lg transition-all duration-200 border border-blue-500 hover:border-blue-400 shadow-lg hover:shadow-xl"
+              >
+                <Download className="w-5 h-5" />
+                Download CV (PDF)
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Contact Section */}
       <section id="contact" className="container mx-auto px-4 py-20 scroll-mt-16">
         <div className="max-w-4xl mx-auto">
@@ -501,14 +579,6 @@ export default function Home() {
               >
                 <Mail className="w-5 h-5" />
                 Email
-              </a>
-              <a
-                href="/cv.pdf"
-                download
-                className="inline-flex items-center gap-2 px-6 py-3 bg-slate-800 hover:bg-slate-700 text-slate-100 rounded-lg transition-colors duration-200 border border-slate-700 hover:border-slate-600"
-              >
-                <Download className="w-5 h-5" />
-                Download CV (PDF)
               </a>
             </div>
           </div>
