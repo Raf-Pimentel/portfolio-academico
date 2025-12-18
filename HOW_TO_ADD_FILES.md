@@ -26,34 +26,61 @@ To make the "Download CV (PDF)" button work, follow these steps:
 
 ---
 
-## Adding Project Images
+## Adding Images
 
-### Structure for Project Images
+### Structure for All Images
 
 Create the following folder structure in the `public` folder:
 
 ```
 public/
 ├── cv.pdf
+├── profile-photo.jpg              ← Your personal photo (About Me section)
+├── unicamp-logo.png               ← Unicamp logo (About Me section)
 ├── entrepreneurship-league-logo.png  ← Logo for Entrepreneurship League
-└── projects/
-    ├── scientific-initiation/
-    │   ├── image1.jpg
-    │   ├── image2.jpg
-    │   └── ... (add as many images as you want)
-    ├── ifome/
-    │   ├── image1.jpg
-    │   ├── image2.jpg
-    │   └── ... (add as many images as you want)
-    ├── autonomous-perception/
-    │   ├── image1.jpg
-    │   ├── image2.jpg
-    │   └── ... (add as many images as you want)
-    └── rubiks-cube/
-        ├── image1.jpg
-        ├── image2.jpg
-        └── ... (add as many images as you want)
+├── projects/
+│   ├── scientific-initiation/
+│   │   ├── image1.jpg
+│   │   ├── image2.jpg
+│   │   └── ... (add as many images as you want)
+│   ├── ifome/
+│   │   ├── image1.jpg
+│   │   ├── image2.jpg
+│   │   └── ... (add as many images as you want)
+│   ├── autonomous-perception/
+│   │   ├── image1.jpg
+│   │   ├── image2.jpg
+│   │   └── ... (add as many images as you want)
+│   └── rubiks-cube/
+│       ├── image1.jpg
+│       ├── image2.jpg
+│       └── ... (add as many images as you want)
+└── awards/
+    ├── super-liga-x.jpg           ← Super Liga X competition image
+    └── robocar-race.jpg           ← Robocar Race competition image
 ```
+
+### About Me Section Images
+
+1. **Profile Photo** (`profile-photo.jpg`):
+   - Place in the `public` folder
+   - Recommended: Square or portrait orientation
+   - Recommended size: 800x800px or larger
+   - Will be displayed as a circular image
+
+2. **Unicamp Logo** (`unicamp-logo.png`):
+   - Place in the `public` folder
+   - Recommended: PNG format with transparency
+   - Recommended size: 200x200px or similar
+
+### Awards Section Images
+
+1. **Super Liga X** (`awards/super-liga-x.jpg`):
+   - Create the `awards` folder in `public` if it doesn't exist
+   - Add your competition photo here
+
+2. **Robocar Race** (`awards/robocar-race.jpg`):
+   - Add your competition photo in the `awards` folder
 
 ### How to Add More Images
 
@@ -77,6 +104,14 @@ public/
 - Place your logo file in the `public` folder
 - Name it `entrepreneurship-league-logo.png` (or `.jpg` if needed)
 - Update the `src` path in the code if you use a different filename
+
+### Editing About Me Description
+
+To edit the personal description in the About Me section:
+1. Open `app/page.tsx`
+2. Find the section with id "about"
+3. Look for the paragraph inside the description div
+4. Replace the placeholder text with your personal description
 
 ---
 
