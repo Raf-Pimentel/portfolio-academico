@@ -1,6 +1,6 @@
 # Portfólio Acadêmico - Rafael Melo
 
-Portfólio acadêmico desenvolvido com Next.js, Tailwind CSS e Lucide React, apresentando o perfil de estudante de Engenharia Mecatrônica na Unicamp.
+Portfólio acadêmico desenvolvido com Next.js, Tailwind CSS e Lucide React, apresentando o meu perfil acadêmico enquanto estudante de Engenharia Mecatrônica na Unicamp.
 
 ## 🚀 Tecnologias Utilizadas
 
@@ -140,4 +140,5 @@ Este projeto é pessoal e acadêmico.
 ---
 
 Desenvolvido com ❤️ usando Next.js e Tailwind CSS
+
 
